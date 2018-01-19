@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/faraz/git/php-fpm","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
