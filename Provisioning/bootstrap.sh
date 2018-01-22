@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 export UPDATE_SYSTEM=0
 TIME_ZONE_FILE=/usr/share/zoneinfo/Europe/London
 
@@ -105,20 +104,17 @@ installPHPRemi(){
 	sudo yum --quiet -y install yum-utils
 	
 	#Command to enable the repository:
-	sudo  yum-config-manager --enable remi-php71
+	sudo  yum-config-manager --quiet -y --enable remi-php71
 	
 	sudo yum --quiet -y update
 	
 	printLog "Install PHP"
 	sudo yum --quiet -y install php php-gd php-mysqlnd php-mcrypt php-mbstring php-common php-pecl-apcu php-soap php-xml php-pecl-http php-devel php-intl php-pecl-zip php-fpm
 	printLog "SetEnv"
-	sudo echo 'SetEnv KOMMAND_ENV DEVELOPMENT
-IncludeOptional \'/var/www/vhosts/system/http/*.conf\'	
-'  > /etc/httpd/conf.d/vhosts.conf
-	sudo echo '
-include=/var/www/vhosts/system/php-fpm/*.conf\	
-'  > /etc/php-fpm.d/conf.d/vhosts.conf
-
+	sudo echo "SetEnv KOMMAND_ENV DEVELOPMENT
+IncludeOptional '/var/www/vhosts/system/http/*.conf'	
+"  > /etc/httpd/conf.d/vhosts.conf
+	sudo echo "include=/var/www/vhosts/system/php-fpm/*.conf"  > /etc/php-fpm.d/conf.d/vhosts.conf
 }
 
 printLog "Setting Timzone for host";
@@ -140,7 +136,7 @@ sudo yum --quiet -y install wget
 #sudo yum --quiet -y install zip unzip
 
 printLog "Setting document root to public directory"
-mkdir /var/www/
+#mkdir /var/www/
 #mkdir /var/www/html/vendor
 #mkdir /var/www/html/cache
 #mkdir /var/www/html/logs
@@ -162,12 +158,9 @@ installPHPRemi
 #installComposer;
 #installMysql 57;
 #importDB;
-
-#sudo echo "<?php defined('SYSPATH') or die('No direct script access.'); return array( 'id'=>1);" > /var/www/html/config/domain.php
-
 printLog "Change permissions"
 #sudo chown apache:apache /var/www/html -R
 
 printLog "Restart apache";
 sudo systemctl restart php-fpm
-sudo systemctl restart httpd.service 
+sudo systemctl restart httpd
