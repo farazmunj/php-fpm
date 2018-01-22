@@ -140,9 +140,10 @@ sudo yum --quiet -y install wget
 #sudo yum --quiet -y install zip unzip
 
 printLog "Setting document root to public directory"
-mkdir /var/www/html/vendor
-mkdir /var/www/html/cache
-mkdir /var/www/html/logs
+mkdir /var/www/
+#mkdir /var/www/html/vendor
+#mkdir /var/www/html/cache
+#mkdir /var/www/html/logs
 
 
 printLog "Change permissions"
@@ -154,7 +155,7 @@ sudo setenforce 0
 #sudo chcon -R -t httpd_sys_rw_content_t /var/www/html/img
 #sudo chcon -R -t httpd_sys_rw_content_t /var/www/html/vendor
 sudo setsebool -P httpd_can_network_connect=1
-sudo ln -s /var/www/html/application/.htaccess /var/www/html/.htaccess
+#sudo ln -s /var/www/html/application/.htaccess /var/www/html/.htaccess
 # call functions to setup evniroment
 #installPHP
 installPHPRemi
