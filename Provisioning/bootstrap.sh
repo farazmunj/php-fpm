@@ -117,7 +117,7 @@ IncludeOptional \'/var/www/vhosts/system/http/*.conf\'
 '  > /etc/httpd/conf.d/vhosts.conf
 	sudo echo '
 include=/var/www/vhosts/system/php-fpm/*.conf\	
-'  > /etc/php-fpm.d//conf.d/vhosts.conf
+'  > /etc/php-fpm.d/conf.d/vhosts.conf
 
 }
 
