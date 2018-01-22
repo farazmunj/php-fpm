@@ -114,7 +114,7 @@ installPHPRemi(){
 	sudo echo "SetEnv KOMMAND_ENV DEVELOPMENT
 IncludeOptional '/var/www/vhosts/system/http/*.conf'	
 "  > /etc/httpd/conf.d/vhosts.conf
-	sudo echo "include=/var/www/vhosts/system/php-fpm/*.conf"  > /etc/php-fpm.d/conf.d/vhosts.conf
+	sudo echo "include=/var/www/vhosts/system/php-fpm/*.conf"  > /etc/php-fpm.d/vhosts.conf
 }
 
 printLog "Setting Timzone for host";
