@@ -136,8 +136,8 @@ installPHPRemi(){
         Allow from all
         <IfModule mod_proxy_fcgi.c>
 	    <Files ~ (\.php$)>
-        	#SetHandler proxy:unix:/var/www/vhosts/socket/my.sock|fcgi://127.0.0.1:9000
-        	SetHandler "proxy:fcgi://127.0.0.1:9000"
+        	SetHandler "proxy:unix:/var/www/vhosts/socket/%0/php-fpm.sock|fcgi://127.0.0.1:9000"
+        	#SetHandler "proxy:fcgi://127.0.0.1:9000"
             </Files>
         </IfModule>
     </Directory>
