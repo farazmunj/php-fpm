@@ -1,4 +1,4 @@
 <?php
-sesion_start();
+session_start();
 echo phpinfo();
 ?>
